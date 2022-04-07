@@ -7,8 +7,8 @@ export default class Forecast{
         this.humidity = data.main.humidity;
         this.weather = this.setWeather(data);
         this.weatherDescription = data.weather[0].description;
-        this.sunrise = this.setSunrise(data.sys.sunrise-data.timezone);
-        this.sunset = this.setSunset(data.sys.sunset-data.timezone);
+        this.sunrise = this.setSunrise(data.sys.sunrise+data.timezone);
+        this.sunset = this.setSunset(data.sys.sunset+data.timezone);
         this.iconUrl = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
         this.days = this.setDays();
         this.dailyTemps = this.setDailyTemps(dailyData);

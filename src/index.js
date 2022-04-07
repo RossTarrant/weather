@@ -5,7 +5,7 @@ const API_KEY = 'cd3db8003532bc290a76d37d031eb2c0';
 
 async function getWeatherData(location){
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${API_KEY}&units=metric`;
-    const response = await fetch(url, {mode: 'cors'})
+    const response = await fetch(url, {mode: 'cors'});
     const data = await response.json();
     let lat = data.coord.lat;
     let lon = data.coord.lon;
@@ -100,8 +100,15 @@ function removeForecast(){
 
 async function controller(location){
     removeForecast();
-    let forecast = await getWeatherData(location);
-    displayForecast(forecast);
+    try{
+        let forecast = await getWeatherData(location);
+        displayForecast(forecast);
+    }
+    catch(error){
+        console.log(error);
+        alert('City not found, please make sure to format using the instructions above!')
+    }
+    
 }
 
 const searchInp = document.querySelector('#searchbar');

@@ -88,3 +88,7 @@ h2{
 .daily-icon{
     width: 80px;
 }
+
+a:visited{
+    color: rgb(0, 0, 0);
+}
