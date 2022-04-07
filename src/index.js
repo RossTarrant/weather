@@ -13,18 +13,10 @@ async function getWeatherData(location){
     const response2 = await fetch(dailyUrl, {mode: 'cors'})
     const dailyData = await response2.json();
     const forecast = new Forecast(data, dailyData);
-    console.log(data);
     return forecast;
 }
 
-async function getGif(weather){
-    let url = `https://api.giphy.com/v1/gifs/translate?api_key=DA1YASwLmE6LlB9LjGW0KNm8xnhGEpgb&s=${weather}`;
-    const response = await fetch(url, {mode: 'cors'});
-    const data = await response.json()
-    return data.data.images.original.url;
-}
-
-function displayForecast(forecast, gifUrl){
+function displayForecast(forecast){
     const weatherDiv = document.createElement('div');
     weatherDiv.classList.add('weather')
     
@@ -94,10 +86,6 @@ function displayForecast(forecast, gifUrl){
 
     weatherDiv.appendChild(fiveDay);
 
-    const img = document.createElement('img');
-    img.src = gifUrl;
-    //weatherDiv.appendChild(img);
-
     const content = document.querySelector('.content');
     content.appendChild(weatherDiv);
 }
@@ -113,8 +101,7 @@ function removeForecast(){
 async function controller(location){
     removeForecast();
     let forecast = await getWeatherData(location);
-    let url = await getGif(forecast.getWeather());
-    displayForecast(forecast, url);
+    displayForecast(forecast);
 }
 
 const searchInp = document.querySelector('#searchbar');
