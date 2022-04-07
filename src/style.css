@@ -1,0 +1,90 @@
+body{
+    background-color: rgb(70, 112, 228);
+    color: white;
+    margin: 50px;
+}
+
+body, button{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+label, button{
+    font-weight: bold;
+    font-size: 18px;
+}
+
+button{
+    background-color: white;
+    border-radius: 8px;
+    border: 2px solid black;
+    cursor: pointer;
+}
+
+input{
+    border-radius: 6px;
+    border: 2px solid black;
+    font-size: 24px;
+}
+
+h2{
+    font-size: 48px;
+    margin: 15px;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.header{
+    
+}
+
+.search{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.error{
+    text-align: center;
+    width: 50vw;
+}
+
+.weather{
+    padding: 30px;
+    background-color: rgb(91, 151, 179);
+    border-radius: 12px;
+    border: 12px solid rgb(66, 106, 124);
+    width: 50vw;
+    text-align: center;
+}
+
+.times{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.five-day-forecast{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    gap: 20px;
+    font-size: 20px;
+}
+
+.day-weather{
+    padding: 10px;
+}
+
+.day-weather p{
+    margin: 0px;
+}
+
+.daily-icon{
+    width: 80px;
+}
